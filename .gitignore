@@ -30,3 +30,20 @@
 *.exe
 *.out
 *.app
+
+# CMake
+bin/*
+build/*
+
+# Macos
+.DS_Store
+
+# Vscode
+.vscode
+
+# vim
+*.swp
+*.swo
+
+# ctag
+tags
