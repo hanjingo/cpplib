@@ -17,8 +17,6 @@
 #include <boost/log/utility/setup/common_attributes.hpp>
 #include <boost/log/support/date_time.hpp>
 
-#include "cpplib/util/filepath.hpp"
-
 namespace cpplib {
 namespace log {
 
@@ -110,27 +108,27 @@ class Logger {
 
   template<typename... ArgTypes>
   static inline void Debug(const std::string& fmt, ArgTypes&&... args) {
-    BOOST_LOG_SEV(slg, Lvl::DEBUG) << cpplib::log::_format(fmt, args...) << std::endl;
+    BOOST_LOG_SEV(_slg, Lvl::DEBUG) << cpplib::log::_format(fmt, args...) << std::endl;
   }
 
   template<typename... ArgTypes>
   static inline void Info(const std::string& fmt, ArgTypes&&... args) {
-    BOOST_LOG_SEV(slg, Lvl::INFO) << cpplib::log::_format(fmt, args...) << std::endl;
+    BOOST_LOG_SEV(_slg, Lvl::INFO) << cpplib::log::_format(fmt, args...) << std::endl;
   }
 
   template<typename... ArgTypes>
   static inline void Warn(const std::string& fmt, ArgTypes&&... args) {
-    BOOST_LOG_SEV(slg, Lvl::WARN) << cpplib::log::_format(fmt, args...) << std::endl;
+    BOOST_LOG_SEV(_slg, Lvl::WARN) << cpplib::log::_format(fmt, args...) << std::endl;
   }
 
   template<typename... ArgTypes>
   static inline void Error(const std::string& fmt, ArgTypes&&... args) {
-    BOOST_LOG_SEV(slg, Lvl::ERROR) << cpplib::log::_format(fmt, args...) << std::endl;
+    BOOST_LOG_SEV(_slg, Lvl::ERROR) << cpplib::log::_format(fmt, args...) << std::endl;
   }
 
   template<typename... ArgTypes>
   static inline void Fatal(const std::string& fmt, ArgTypes&&... args) {
-    BOOST_LOG_SEV(slg, Lvl::ERROR) << cpplib::log::_format(fmt, args...) << std::endl;
+    BOOST_LOG_SEV(_slg, Lvl::ERROR) << cpplib::log::_format(fmt, args...) << std::endl;
   }
 
  private:

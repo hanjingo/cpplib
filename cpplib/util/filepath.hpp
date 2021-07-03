@@ -4,24 +4,26 @@
 #include <vector>
 #include <algorithm>
 #include <fstream>
+#include <memory>
 
 #include <boost/filesystem.hpp>
+
+#define B  1
+#define KB 1024 * B
+#define MB 1024 * KB
+#define GB 1024 * MB
+#define TB 1024 * GB
 
 namespace cpplib {
 namespace util {
 
 namespace fs = boost::filesystem;
 
-#define unsigned long SIZE
-#define B 1
-#define KB 1024 * B
-#define MB 1024 * KB
-#define GB 1024 * MB
-#define TB 1024 * GB
+// 判断路径是否存在
+static inline bool IsExist(const std::string& abspath) { return fs::exists(abspath); };
 
-static inline bool Exist(const std::string& abspath) { return fs::exists(abspath); };
-
-static inline void Pwd(std::string& path) { path = fs::current_path().string(); };
+// 返回当前路径
+static inline std::shared_ptr<std::string> Pwd() { return std::make_shared<std::string>(fs::current_path().string()); };
 
 // 拆分路径
 static inline void Split(const std::string& file_path_name, 
@@ -32,10 +34,12 @@ static inline void Split(const std::string& file_path_name,
   file_name = p.filename().string();
 };
 
+// 强行创建路径
 static inline bool MustCreatePath(const std::string& path) { 
   return fs::create_directories(fs::path(path)); 
 };
 
+// 查找所有子目录
 static void SubDirs(std::vector<std::string>& out, 
                     const std::string& path, 
                     int depth = 1) {
@@ -52,6 +56,7 @@ static void SubDirs(std::vector<std::string>& out,
   }
 };
 
+// 强行创建文件
 static bool MustCreateFile(const std::string& file_path_name) {
   std::string path{};
   std::string file_name{};
