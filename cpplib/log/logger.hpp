@@ -90,9 +90,9 @@ class Logger {
 
   /**
     * @brief 设置日志等级
-    * @param lvl 日志等级
+    * @param min 日志等级
     */
-  void SetLvl(Lvl lvl);
+  void SetLvl(Lvl min);
 
   /**
     * @brief 默认格式处理器

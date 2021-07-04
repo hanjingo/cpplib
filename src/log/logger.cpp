@@ -35,8 +35,8 @@ void Logger::AddFileSink(const std::string& dir, int max_file_size_mb,
     boost::log::core::get()->add_sink(consoleSink);
   }
 
-  void Logger::SetLvl(Lvl lvl) {
-    auto slvl = static_cast<int>(lvl);
+  void Logger::SetLvl(Lvl min) {
+    auto lvl = static_cast<int>(min);
     boost::log::core::get()->set_filter(trivial::severity >= lvl);
   }
 

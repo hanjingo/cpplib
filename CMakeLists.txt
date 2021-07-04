@@ -25,3 +25,4 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR} )
 # 添加子目录
 add_subdirectory(src) # 源文件
 add_subdirectory(test) # 测试
+#add_subdirectory(sample) # 示例

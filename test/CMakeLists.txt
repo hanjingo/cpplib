@@ -3,4 +3,4 @@ if(NOT DEFINED TEST_OUTPUT_PATH)
 endif()
 
 add_subdirectory(util) # 测试util
-#add_subdirectory(log) # 测试log
+add_subdirectory(log) # 测试log
