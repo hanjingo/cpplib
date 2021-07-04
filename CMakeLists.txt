@@ -3,6 +3,8 @@ project(cpplib)
 
 set(CPPLIB_VERSION 0.0.1)
 set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bins)
+set(TEST_LOG OFF) # 编译log测试程序
+set(TEST_UTIL ON) # 编译util测试程序
 
 # 打开c++11
 add_definitions(-std=c++11)
